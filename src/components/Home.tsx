@@ -1,10 +1,13 @@
 import React from "react";
-import { Carousel } from "./Carousel";
+import Carousel from "./Carousel";
+import { Block } from 'vcc-ui';
 
-export const Home: React.FC = () => {
-  return (
-    <div style={{maxWidth: 1200, margin: '50px auto'}}>
-      <Carousel />
-    </div>
-  );
+const Home: React.FC = () => {
+    return (
+        <Block as="section" className={'container'}>
+            <Carousel />
+        </Block>
+    );
 };
+
+export default Home;

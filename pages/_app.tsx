@@ -1,18 +1,6 @@
-import React from "react";
-import { StyleProvider, ThemePicker } from 'vcc-ui';
-import { Home } from "../src/components/Home";
 import "../public/css/styles.css";
+import type { AppProps } from 'next/app'
 
-function App() {
-  return (
-    <React.StrictMode>
-      <StyleProvider>
-        <ThemePicker variant="light">
-          <Home></Home>
-        </ThemePicker>
-      </StyleProvider>
-    </React.StrictMode>
-  );
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
 }
-
-export default App;
