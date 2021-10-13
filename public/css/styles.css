@@ -1,4 +1,10 @@
 body {
-  background: steelblue;
-  color: white;
+  background: #fff;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+a {
+  text-decoration: none;
 }
