@@ -20,9 +20,13 @@ const Carousel: React.FC = () => {
     const theme = useTheme();
 
     return (
-        <Block className={styles.carousel__continer}>
+        <Block extend={{
+            padding: '50px 0'
+        }}>
             <Swiper
-                className={styles.carousel}
+                style={{
+                    paddingBottom: "50px"
+                }}
                 spaceBetween={10}
                 breakpoints={{
                     // when window width is >= 320px
@@ -31,7 +35,7 @@ const Carousel: React.FC = () => {
                     },
                     // when window width is >= 640px
                     480: {
-                        slidesPerView: 3
+                        slidesPerView: 2.7
                     },
                     1024: {
                         slidesPerView: 4
