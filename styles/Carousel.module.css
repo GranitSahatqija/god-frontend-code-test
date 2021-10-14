@@ -1,0 +1,30 @@
+.carousel__container {
+    padding: 50px 0;
+}
+
+.carousel {
+    padding-bottom: 50px;
+}
+
+.custom__prev,
+.custom__next {
+    background-color: transparent;
+    border: none;
+    vertical-align: middle;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.custom__prev[disabled],
+.custom__next[disabled] {
+    opacity: 0.5;
+}
+
+.custom__prev {
+    transform: rotate(180deg);
+}
+
+.active__bullet {
+    background-color: #141414;
+    opacity: 1;
+}
