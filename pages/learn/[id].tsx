@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { ParsedUrlQuery } from 'querystring'
-import { Block, Text, View } from 'vcc-ui';
+import { Block, Text, View, useTheme } from 'vcc-ui';
 
 import cars from '../../public/api/cars.json';
 import { Cars, CarProps } from '../../interfaces/Car';
@@ -13,23 +13,25 @@ interface PageProps extends ParsedUrlQuery {
 }
 
 const Learn = ({ id, modelName, bodyType, modelType, imageUrl }: CarProps) => {
+    const theme = useTheme();
     return (
         <View className={'container'}>
             <Block className={styles.image__container}>
                 <Image className={styles.image}  src={'/images/volvo-hq-demo-image.webp'} alt={`${modelName} ${modelType}`} layout="fill" objectFit="contain"/>
             </Block>
             <Block>
-                <Text as="h2" extend={{
+                <Text as="h1" extend={{
                     marginRight: "5px",
-                    color: "#141414"
+                    color: theme.color.foreground.primary,
                 }} variant="cook">{modelName}</Text>
                 <Text as="em" extend={{
-                    color: "#727272",
+                    color: theme.color.foreground.secondary,
                     fontStyle: "normal",
+                    textTransform: "uppercase"
                 }} variant="columbus">{modelType}</Text>
             </Block>
             <Block>
-                <Text as="p" variant="columbus">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci corporis mollitia dignissimos enim voluptatem. Excepturi dicta debitis harum obcaecati recusandae assumenda maiores dolores repudiandae, adipisci, esse perspiciatis quia cumque consectetur.</Text>
+                <Text as="p" variant="columbus" extend={{color: theme.color.foreground.primary,}}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci corporis mollitia dignissimos enim voluptatem. Excepturi dicta debitis harum obcaecati recusandae assumenda maiores dolores repudiandae, adipisci, esse perspiciatis quia cumque consectetur.</Text>
             </Block>
         </View>
     );

@@ -1,29 +1,31 @@
 import React from 'react'
 import Image from 'next/image'
-import { Block, Link, Flex, Inline, Text } from 'vcc-ui';
+import { Block, Link, Flex, Inline, Text, useTheme } from 'vcc-ui';
 import { CarProps } from '../../interfaces/Car';
 
 const Car: React.FC<CarProps> = ({ id, modelName, bodyType, modelType, imageUrl }: CarProps) => {
+    const theme = useTheme();
     return (
         <Block>
             <Block>
                 <Block>
                     <Inline extend={{
-                        color: "#707070",
-                        fontSize: "16px",
+                        color: theme.color.foreground.secondary,
+                        fontSize: "14px",
                         fontStyle: "normal",
                         fontWeight: 600,
+                        textTransform: "uppercase"
                     }}>{bodyType}</Inline>
                     <Text as="h3">
                         <Inline extend={{
                             marginRight: "5px",
-                            color: "#141414",
+                            color: theme.color.foreground.primary,
                             fontSize: "18px",
                             fontWeight: "bold"
                         }}>{modelName}</Inline>
                         <Inline as="em" extend={{
                             fontSize: "16px",
-                            color: "#727272",
+                            color: theme.color.foreground.secondary,
                             fontStyle: "normal"
                         }}>{modelType}</Inline>
                     </Text>
