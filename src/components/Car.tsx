@@ -9,13 +9,10 @@ const Car: React.FC<CarProps> = ({ id, modelName, bodyType, modelType, imageUrl 
         <Block>
             <Block>
                 <Block>
-                    <Inline extend={{
+                    <Text as="em" subStyle="emphasis" extend={{
                         color: theme.color.foreground.secondary,
-                        fontSize: "14px",
-                        fontStyle: "normal",
-                        fontWeight: 600,
                         textTransform: "uppercase"
-                    }}>{bodyType}</Inline>
+                    }}>{bodyType}</Text>
                     <Text as="h3">
                         <Inline extend={{
                             marginRight: "5px",

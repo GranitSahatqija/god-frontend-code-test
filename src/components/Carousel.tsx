@@ -13,10 +13,13 @@ import 'swiper/css/pagination';
 import styles from '../../styles/Carousel.module.css';
 import Car from './Car';
 import { Cars, CarProps } from '../../interfaces/Car';
-import data from '../../public/api/cars.json';
 
-const Carousel: React.FC = () => {
-    const cars: Cars = data;
+interface CarouselProps {
+    cars: Cars
+}
+
+const Carousel: React.FC<CarouselProps> = ({ cars }) => {
+    const items: Cars = cars;
     const theme = useTheme();
 
     return (
@@ -29,15 +32,18 @@ const Carousel: React.FC = () => {
                 breakpoints={{
                     // when window width is >= 320px
                     320: {
-                        slidesPerView: 1.5
+                        slidesPerView: 1.2
                     },
                     // when window width is >= 640px
                     480: {
+                        slidesPerView: 1.8
+                    },
+                    768: {
                         slidesPerView: 2.7
                     },
                     1024: {
                         slidesPerView: 4
-                    }
+                    },
                 }}
                 navigation={{
                     nextEl: `.arrow-next`,
@@ -46,7 +52,7 @@ const Carousel: React.FC = () => {
                 pagination={{ clickable: true, bulletActiveClass: styles.active__bullet, el: '.pagination' }}
                 modules={[Navigation, Pagination]}
             >
-                {cars.map((car: CarProps) => <SwiperSlide key={car.id}><Car {...car} /></SwiperSlide>)}
+                {items.map((car: CarProps) => <SwiperSlide key={car.id}><Car {...car} /></SwiperSlide>)}
                 <Flex className={styles.carousel__controls} extend={{
                     justifyContent: 'flex-end',
                     flexDirection: 'row',

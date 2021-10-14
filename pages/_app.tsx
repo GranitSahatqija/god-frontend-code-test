@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { StyleProvider, ThemePicker, View, useTheme, Flex, Toggle } from 'vcc-ui';
+import { StyleProvider, ThemePicker, useTheme, Flex, Toggle, Block } from 'vcc-ui';
 import "../public/css/styles.css";
 import type { AppProps } from 'next/app'
 
@@ -43,9 +43,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 const PageContainer: React.FC = ({ children }) => {
     const theme = useTheme();
     return (
-        <View extend={{ backgroundColor: theme.color.background.primary, padding: 15 }}>
+        <Block extend={{ backgroundColor: theme.color.background.primary, padding: 15 }}>
             {children}
-        </View>
+        </Block>
     );
 }
 
