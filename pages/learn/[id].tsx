@@ -16,22 +16,20 @@ const Learn = ({ id, modelName, bodyType, modelType, imageUrl }: CarProps) => {
     return (
         <View className={'container'}>
             <Block className={styles.image__container}>
-                <Image src={'/images/volvo-hq-demo-image.webp'} alt={`${modelName} ${modelType}`} layout="fill" objectFit="contain" className={styles.image} />
+                <Image className={styles.image}  src={'/images/volvo-hq-demo-image.webp'} alt={`${modelName} ${modelType}`} layout="fill" objectFit="contain"/>
             </Block>
             <Block>
-                <Text as="h1" extend={{
+                <Text as="h2" extend={{
                     marginRight: "5px",
-                    color: "#141414",
-                    fontSize: "50px"
-                }}>{modelName}</Text>
+                    color: "#141414"
+                }} variant="cook">{modelName}</Text>
                 <Text as="em" extend={{
-                    fontSize: "14px",
                     color: "#727272",
-                    fontWeight: 600
-                }}>{modelType}</Text>
+                    fontStyle: "normal",
+                }} variant="columbus">{modelType}</Text>
             </Block>
             <Block>
-                <Text as="p">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci corporis mollitia dignissimos enim voluptatem. Excepturi dicta debitis harum obcaecati recusandae assumenda maiores dolores repudiandae, adipisci, esse perspiciatis quia cumque consectetur.</Text>
+                <Text as="p" variant="columbus">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci corporis mollitia dignissimos enim voluptatem. Excepturi dicta debitis harum obcaecati recusandae assumenda maiores dolores repudiandae, adipisci, esse perspiciatis quia cumque consectetur.</Text>
             </Block>
         </View>
     );

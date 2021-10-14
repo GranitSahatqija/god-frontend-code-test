@@ -6,11 +6,11 @@ import { CarProps } from '../../interfaces/Car';
 const Car: React.FC<CarProps> = ({ id, modelName, bodyType, modelType, imageUrl }: CarProps) => {
     return (
         <Block>
-            <Link href={`/learn/${id}`} aria-label={`Learn more about ${modelName}`}>
+            <Block>
                 <Block>
                     <Inline extend={{
                         color: "#707070",
-                        fontSize: "14px",
+                        fontSize: "16px",
                         fontStyle: "normal",
                         fontWeight: 600,
                     }}>{bodyType}</Inline>
@@ -18,15 +18,13 @@ const Car: React.FC<CarProps> = ({ id, modelName, bodyType, modelType, imageUrl 
                         <Inline extend={{
                             marginRight: "5px",
                             color: "#141414",
-                            fontSize: "16px",
-                            fontWeight: "bold",
-                            textTransform: "capitalize"
+                            fontSize: "18px",
+                            fontWeight: "bold"
                         }}>{modelName}</Inline>
-                        <Inline extend={{
-                            fontSize: "14px",
+                        <Inline as="em" extend={{
+                            fontSize: "16px",
                             color: "#727272",
-                            fontWeight: "normal",
-                            textTransform: "lowercase"
+                            fontStyle: "normal"
                         }}>{modelType}</Inline>
                     </Text>
                 </Block>
@@ -37,7 +35,7 @@ const Car: React.FC<CarProps> = ({ id, modelName, bodyType, modelType, imageUrl 
                 }}>
                     <Image src={imageUrl} alt={`${modelName} ${modelType}`} layout="fill"></Image>
                 </Block>
-            </Link>
+            </Block>
             <Flex extend={{
                 flexDirection: 'row',
                 justifyContent: 'center',

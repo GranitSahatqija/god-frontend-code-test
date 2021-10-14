@@ -20,9 +20,7 @@ const Carousel: React.FC = () => {
     const theme = useTheme();
 
     return (
-        <Block extend={{
-            padding: '50px 0'
-        }}>
+        <Block>
             <Swiper
                 style={{
                     paddingBottom: "50px"
