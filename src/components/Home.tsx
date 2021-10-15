@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Carousel from "./Carousel";
+import Carousel from "components/Carousel/Carousel";
 import { SelectInput, Flex, Spacer } from 'vcc-ui';
 import data from '../../public/api/cars.json';
-import { Cars } from '../../interfaces/Car';
+import { Cars } from 'interfaces/Car';
 
 interface BodyTypeFilterProp {
     label: string;

@@ -10,9 +10,9 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-import styles from '../../styles/Carousel.module.css';
-import Car from './Car';
-import { Cars, CarProps } from '../../interfaces/Car';
+import styles from 'styles/Carousel.module.css';
+import Car from 'components/Car/Car';
+import { Cars, CarProps } from 'interfaces/Car';
 
 interface CarouselProps {
     cars: Cars
