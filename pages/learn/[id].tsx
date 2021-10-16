@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Head from 'next/head'
 import { GetStaticProps, GetStaticPaths } from 'next'
 import { ParsedUrlQuery } from 'querystring'
 import { Block, Text, View, useTheme } from 'vcc-ui';
@@ -15,25 +16,31 @@ interface PageProps extends ParsedUrlQuery {
 const Learn = ({ id, modelName, bodyType, modelType, imageUrl }: CarProps) => {
     const theme = useTheme();
     return (
-        <View className={'container'}>
-            <Block className={styles.image__container}>
-                <Image data-testid="car image" className={styles.image}  src={'/images/volvo-hq-demo-image.webp'} alt={`${modelName} ${modelType}`} layout="fill" objectFit="contain"/>
-            </Block>
-            <Block>
-                <Text as="h1" extend={{
-                    marginRight: "5px",
-                    color: theme.color.foreground.primary,
-                }} variant="cook" data-testid="car model">{modelName}</Text>
-                <Text as="em" extend={{
-                    color: theme.color.foreground.secondary,
-                    fontStyle: "normal",
-                    textTransform: "uppercase"
-                }} variant="columbus" data-testid="car charge type">{modelType}</Text>
-            </Block>
-            <Block>
-                <Text as="p" variant="columbus" extend={{color: theme.color.foreground.primary,}}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci corporis mollitia dignissimos enim voluptatem. Excepturi dicta debitis harum obcaecati recusandae assumenda maiores dolores repudiandae, adipisci, esse perspiciatis quia cumque consectetur.</Text>
-            </Block>
-        </View>
+        <>
+            <Head>
+                <title>Volvo - Learn more about {modelName}</title>
+                <meta property="description" content={`${modelName} - ${modelType}`} />
+            </Head>
+            <View className={'container'}>
+                <Block className={styles.image__container}>
+                    <Image data-testid="car image" className={styles.image} src={'/images/volvo-hq-demo-image.webp'} alt={`${modelName} ${modelType}`} layout="fill" objectFit="contain" />
+                </Block>
+                <Block>
+                    <Text as="h1" extend={{
+                        marginRight: "5px",
+                        color: theme.color.foreground.primary,
+                    }} variant="cook" data-testid="car model">{modelName}</Text>
+                    <Text as="em" extend={{
+                        color: theme.color.foreground.secondary,
+                        fontStyle: "normal",
+                        textTransform: "uppercase"
+                    }} variant="columbus" data-testid="car charge type">{modelType}</Text>
+                </Block>
+                <Block>
+                    <Text as="p" variant="columbus" extend={{ color: theme.color.foreground.primary, }}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Adipisci corporis mollitia dignissimos enim voluptatem. Excepturi dicta debitis harum obcaecati recusandae assumenda maiores dolores repudiandae, adipisci, esse perspiciatis quia cumque consectetur.</Text>
+                </Block>
+            </View>
+        </>
     );
 }
 

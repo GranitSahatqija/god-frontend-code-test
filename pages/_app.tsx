@@ -26,6 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     <PageContainer>
                         <Flex extend={{alignItems: 'flex-end'}}>
                             <Toggle
+                                aria-label="theme toggler"
                                 checked={variant === ThemeVariants.Light}
                                 onChange={(e) => {
                                     updateVariant(variant);
