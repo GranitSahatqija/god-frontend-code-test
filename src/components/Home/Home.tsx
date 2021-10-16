@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Carousel from "components/Carousel/Carousel";
-import { SelectInput, Flex, Spacer } from 'vcc-ui';
-import data from '../../public/api/cars.json';
+import { SelectInput, Flex, Spacer, Block } from 'vcc-ui';
+import data from '../../../public/api/cars.json';
 import { Cars } from 'interfaces/Car';
+import Car from "../Car/Car";
 
 interface BodyTypeFilterProp {
     label: string;
@@ -34,12 +35,16 @@ const Home: React.FC = () => {
 
     return (
         <Flex as="section" className={'container'}>
-            <SelectInput value={filter} onChange={e => filterUpdated(e.target.value)} label={'Filter by body type'}>
+            <SelectInput value={filter} onChange={e => filterUpdated(e.target.value)} label={'Filter by body type'} data-testid="filter">
                 <option value="">All</option>
-                {bodyTypes.map((bodyType: BodyTypeFilterProp) => <option key={bodyType.value} value={bodyType.value}>{bodyType.label}</option>)}
+                {bodyTypes.map((bodyType) => <option key={bodyType.value} value={bodyType.value}>{bodyType.label}</option>)}
             </SelectInput>
             <Spacer size={4} />
-            <Carousel cars={cars} />
+            <Block>
+                <Carousel>
+                    {cars.map((car) => <Car key={car.id} {...car} /> )}
+                </Carousel>
+            </Block>
         </Flex>
     );
 };

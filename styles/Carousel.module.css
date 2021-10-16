@@ -16,7 +16,17 @@
     transform: rotate(180deg);
 }
 
-.active__bullet {
+.bullet {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
     background-color: #141414;
+    opacity: 0.2;
+    display: inline-block;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.bullet__active {
     opacity: 1;
 }
